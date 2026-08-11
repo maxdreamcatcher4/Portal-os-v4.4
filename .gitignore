@@ -1,21 +1,32 @@
-.DS_Store
+# Node
 node_modules/
-.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Build artifacts
 dist/
 build/
-*.pyc
-__pycache__/
+out/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
 .vscode/
 .idea/
 
-# Logs
-logs/
-*.log
-
-# Compiled artifacts
-*.class
-*.o
-*.so
-
-# Temporary
-*.tmp
+# Compiled JSON artifacts
+**/compiled.json
