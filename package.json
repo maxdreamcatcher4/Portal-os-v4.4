@@ -1,0 +1,31 @@
+{
+  "name": "portal-os-v1",
+  "version": "1.0.0",
+  "description": "Portal‑OS v1 - Foundation OS deployed on Cloudflare Workers",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "esbuild src/index.ts --bundle --platform=browser --outfile=dist/index.js",
+    "test": "vitest"
+  },
+  "keywords": [
+    "portal-os",
+    "cloudflare",
+    "workers",
+    "foundation-os"
+  ],
+  "author": "maxjurreau",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240620.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.3.0",
+    "wrangler": "^3.57.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  }
+}
