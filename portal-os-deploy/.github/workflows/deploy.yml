@@ -1,4 +1,4 @@
-name: Deploy Portal-OS to Cloudflare
+name: Deploy Portal-OS v1
 
 on:
   push:
@@ -9,23 +9,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - name: Install Wrangler
+        run: npm install -g wrangler
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
-        working-directory: portal-os-deploy
-
-      - name: Build
-        run: npm run build
-        working-directory: portal-os-deploy
 
       - name: Deploy to Cloudflare
-        run: npm run deploy
-        working-directory: portal-os-deploy
+        run: wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
