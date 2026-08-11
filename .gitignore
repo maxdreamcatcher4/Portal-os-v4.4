@@ -1,0 +1,21 @@
+.DS_Store
+node_modules/
+.env
+dist/
+build/
+*.pyc
+__pycache__/
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Compiled artifacts
+*.class
+*.o
+*.so
+
+# Temporary
+*.tmp
