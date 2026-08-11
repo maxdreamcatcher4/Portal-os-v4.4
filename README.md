@@ -1,92 +1,23 @@
-# portal-os-v4
+# Portal‑OS v4
 
-Repository skeleton for the Portal OS (v4) project. This repo contains the high-level modules and documentation map for the system.
+Portal‑OS is a multi‑domain operating substrate designed to unify SIM cognitive architecture, TEC orchestration, Umbrella governance, and Class‑C planetary compute layers. This repository contains the canonical structure for Portal‑OS v4, including kernel runtime, identity physics, governance lawbook, routing topology, substrate models, TEC economics, domain suites, SIM builder universe, Umbrella ecosystem lanes, and documentation maps.
 
-Repository layout:
+## Goals
+- Provide a clean, modular foundation for Portal‑OS development.
+- Support SIM → Portal‑OS deterministic builds.
+- Enable multi‑domain compute orchestration at Class‑C scale.
+- Maintain Umbrella‑grade governance, invariants, and identity physics.
+- Offer clear extension points for suites, shell, substrate, and TEC.
 
-```
-portal-os/
-│
-├── kernel/
-│   ├── boot/
-│   ├── config/
-│   ├── scheduler/
-│   ├── modules/
-│   ├── invariants/
-│   └── logging/
-│
-├── identity/
-│   ├── roles/
-│   ├── lifecycle/
-│   ├── auth/
-│   ├── signatures/
-│   ├── audit/
-│   └── identity-physics/
-│
-├── governance/
-│   ├── rules/
-│   ├── policies/
-│   ├── escalation/
-│   └── lawbook/
-│
-├── routing/
-│   ├── topology/
-│   ├── queues/
-│   ├── channels/
-│   └── failure/
-│
-├── substrate/
-│   ├── planet/
-│   ├── regions/
-│   ├── nodes/
-│   ├── metrics/
-│   ├── adapters/
-│   ├── class-b/
-│   └── class-c/
-│
-├── tec/
-│   ├── processes/
-│   ├── accounting/
-│   ├── orchestration/
-│   ├── pipelines/
-│   └── economics/
-│
-├── suites/
-│   ├── sports/
-│   ├── xr/
-│   ├── quantum/
-│   ├── identity-suite/
-│   └── business/
-│
-├── shell/
-│   ├── ui/
-│   ├── cli/
-│   └── api/
-│
-├── sim/
-│   ├── mode/
-│   ├── code/
-│   ├── pipeline/
-│   ├── simvs/
-│   ├── substrate-models/
-│   └── portal-os-compiler/
-│
-├── umbrella/
-│   ├── pmd/
-│   ├── media/
-│   ├── law/
-│   ├── substrate/
-│   ├── governance/
-│   └── economics/
-│
-└── docs/
-    ├── umbrella-map/
-    ├── portal-os-map/
-    ├── sim-map/
-    ├── substrate-map/
-    ├── tec-map/
-    └── identity-physics/
+## Contributing
+Contributions follow these principles:
+- Maintain architectural clarity and modularity.
+- Keep SIM, TEC, Umbrella, and substrate layers cleanly separated.
+- Document new modules in `docs/`.
+- Add tests for kernel, identity, routing, and TEC changes.
+- Use issues and milestones to track roadmap items.
 
-```
+See `docs/roadmap.md` for upcoming work.
 
-This initial commit creates the repository skeleton and placeholder files. Fill in each module with code and documentation as the project progresses.
+## License
+This project uses the MIT License (see LICENSE).
