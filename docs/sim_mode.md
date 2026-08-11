@@ -1,40 +1,22 @@
-# SIM.MODE v1 — Cognitive Architecture
+# Portal‑OS SIM.MODE v1
 
-SIM.MODE defines the cognitive architecture used by Portal‑OS v4.  
-It provides three layers:
+SIM.MODE provides structured simulation and modeling capabilities.
 
-## Core Layer
-Represents:
-- Cognitive states
-- Identity physics anchors
-- Deterministic transitions
+## Components
 
-See `sim/mode/core.py`.
+### SimModel
+Single simulation/model instance.
 
-## Cognitive Layer
-Defines:
-- Cognitive functions
-- Layered reasoning
-- Deterministic evaluation
+### SimWorld
+Named world with entities and rules.
 
-See `sim/mode/cognitive.py`.
+### SimSession
+Stateful simulation context.
 
-## Domain Layer
-Defines:
-- Domain cognition
-- Domain-specific evaluators
-- Suite-level reasoning
+### SimEngine
+Registry and runner for models and worlds.
 
-See `sim/mode/domain.py`.
-
-## Engine
-Coordinates all layers and provides a unified interface.
-
-See `sim/mode/engine.py`.
-
-SIM.MODE is used by:
-- Identity Physics  
-- SIM Pipeline  
-- TEC Orchestration  
-- Umbrella Governance  
-- Portal‑OS Kernel  
+### Examples
+- City systems world
+- Chess model
+- Music space model
