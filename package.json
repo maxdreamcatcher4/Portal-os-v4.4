@@ -1,7 +1,7 @@
 {
-  "name": "portal-os-v1",
-  "version": "1.0.0",
-  "description": "Portal‑OS v1 - Foundation OS deployed on Cloudflare Pages/Workers",
+  "name": "portal-os-v4-4",
+  "version": "4.4.0",
+  "description": "Portal-OS v4.4 - Multi-domain operating substrate deployed on Cloudflare Workers",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
@@ -19,8 +19,9 @@
     "portal-os",
     "cloudflare",
     "workers",
-    "pages",
-    "foundation-os"
+    "substrate",
+    "orchestration",
+    "multi-domain"
   ],
   "author": "maxjurreau",
   "license": "MIT",
