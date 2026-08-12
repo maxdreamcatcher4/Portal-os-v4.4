@@ -10,7 +10,12 @@ main = "dist/worker.js"
 # KV namespace binding (create via wrangler and paste the id)
 [[kv_namespaces]]
 binding = "SUBSTRATE_KV"
-id = "<REPLACE_WITH_KV_NAMESPACE_ID>"
+id = "807456cb41558d3c820308b20affa851"
+
+# Additional runtime KV namespace
+[[kv_namespaces]]
+binding = "RUNTIME_KV"
+id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 
 # Durable Object binding
 [durable_objects]
@@ -27,11 +32,14 @@ new_classes = [ "SubstrateDO" ]
 [env.production]
 name = "portal-os-v1-prod"
 
-# Repeat KV and Durable Object bindings under the environment if your production
-# deployment requires different IDs.
+# Production KV namespaces (same as default here)
 [[env.production.kv_namespaces]]
 binding = "SUBSTRATE_KV"
-id = "<REPLACE_WITH_KV_NAMESPACE_ID>"
+id = "807456cb41558d3c820308b20affa851"
+
+[[env.production.kv_namespaces]]
+binding = "RUNTIME_KV"
+id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 
 [env.production.durable_objects]
 bindings = [
