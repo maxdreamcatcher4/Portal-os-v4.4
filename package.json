@@ -26,13 +26,13 @@
   "author": "maxjurreau",
   "license": "MIT",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260812.1",
+    "@cloudflare/workers-types": "^4.20240620.0",
     "@jridgewell/sourcemap-codec": "^1.5.5",
     "@rollup/plugin-inject": "^5.0.5",
-    "esbuild": "^0.28.2",
-    "typescript": "^7.0.2",
-    "wrangler": "^4.122.0",
-    "vitest": "^4.1.10"
+    "esbuild": "^0.23.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.3.0",
+    "vitest": "^1.6.0"
   },
   "dependencies": {}
 }
