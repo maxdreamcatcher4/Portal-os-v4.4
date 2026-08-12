@@ -7,12 +7,12 @@ command = "npm run build"
 [worker]
 main = "dist/worker.js"
 
-# KV namespace binding (create via wrangler and paste the id)
+# KV namespace binding (SUBSTRATE_KV is required)
 [[kv_namespaces]]
 binding = "SUBSTRATE_KV"
 id = "807456cb41558d3c820308b20affa851"
 
-# Additional runtime KV namespace
+# Optional second KV namespace (you must replace this ID)
 [[kv_namespaces]]
 binding = "RUNTIME_KV"
 id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
@@ -23,16 +23,16 @@ bindings = [
   { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
 ]
 
-# Durable Object migrations (required/strongly-recommended)
+# Durable Object migrations
 [[migrations]]
 tag = "v1"
 new_classes = [ "SubstrateDO" ]
 
-# Optional environment-specific override for production
+# Production environment override
 [env.production]
 name = "portal-os-v1-prod"
 
-# Production KV namespaces (same as default here)
+# Production KV namespaces
 [[env.production.kv_namespaces]]
 binding = "SUBSTRATE_KV"
 id = "807456cb41558d3c820308b20affa851"
