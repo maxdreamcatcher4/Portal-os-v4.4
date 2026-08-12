@@ -1,9 +1,47 @@
 name = "portal-os-v1"
-pages_build_output_dir = "dist"
+compatibility_date = "2026-08-12"
+main = "src/index.ts"
 
-# Pages-only configuration (UI/static site). This file intentionally excludes
-# Worker, Durable Object, KV, and migrations so Cloudflare Pages validation
-# treats this repository as a Pages project.
-#
-# If you need Pages environments, add an [env] table here. Worker runtime
-# configuration lives in wrangler.worker.toml.
+[build]
+command = "npm run build"
+
+[worker]
+main = "dist/worker.js"
+
+# KV namespace binding (SUBSTRATE_KV is required)
+[[kv_namespaces]]
+binding = "SUBSTRATE_KV"
+id = "807456cb41558d3c820308b20affa851"
+
+# Optional second KV namespace (replace this ID)
+[[kv_namespaces]]
+binding = "RUNTIME_KV"
+id = "b9134f2c8d7e4a0fb2c1d9e6a4f7b812"
+
+# Durable Object binding
+[durable_objects]
+bindings = [
+  { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
+]
+
+# Durable Object migrations
+[[migrations]]
+tag = "v1"
+new_classes = [ "SubstrateDO" ]
+
+# Production environment override
+[env.production]
+name = "portal-os-v1-prod"
+
+[[env.production.kv_namespaces]]
+binding = "SUBSTRATE_KV"
+id = "807456cb41558d3c820308b20affa851"
+
+[[env.production.kv_namespaces]]
+binding = "RUNTIME_KV"
+id = "b9134f2c8d7e4a0fb2c1d9e6a4f7b812"
+
+[env.production.durable_objects]
+bindings = [
+  { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
+]
