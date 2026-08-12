@@ -1,5 +1,23 @@
 name = "portal-os-v1"
 pages_build_output_dir = "dist"
+compatibility_date = "2024-07-01"
+
+[build]
+command = "npm run build"
+
+[worker]
+main = "dist/worker.js"
+
+# KV namespace binding (create via wrangler and paste the id)
+[[kv_namespaces]]
+binding = "SUBSTRATE_KV"
+id = "<REPLACE_WITH_KV_NAMESPACE_ID>"
+
+# Durable Object binding
+[durable_objects]
+bindings = [
+  { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
+]
 
 [env.production]
 name = "portal-os-v1-prod"
