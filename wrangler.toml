@@ -3,18 +3,12 @@ main = "src/index.ts"
 compatibility_date = "2024-12-16"
 compatibility_flags = ["nodejs_compat"]
 
-[env.production]
-name = "portal-os-v1-prod"
-routes = [
-  { pattern = "portal-os-v1.maxjurreau.workers.dev", zone_name = "maxjurreau.dev" }
-]
+# Cloudflare Pages configuration
+pages_build_output_dir = "dist"
 
 [build]
 command = "npm run build"
 cwd = "./"
-watch_paths = ["src/**/*.ts"]
 
-[[env.production.build.upload_rules]]
-type = "ESModule"
-globs = ["**/*.js"]
-fallthrough = true
+[env.production]
+name = "portal-os-v1-prod"
