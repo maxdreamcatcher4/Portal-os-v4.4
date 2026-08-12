@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "build": "esbuild src/index.ts --bundle --platform=browser --outfile=dist/index.js"
-    "test": "vitest"
+    "build": "esbuild src/index.ts --bundle --platform=browser --outfile=dist/index.js",
+    "test": "vitest",
+    "lint": "echo 'Lint checks would go here'",
+    "pretest": "npm run build"
   },
   "keywords": [
     "portal-os",
