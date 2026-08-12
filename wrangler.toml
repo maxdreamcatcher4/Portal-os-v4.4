@@ -1,5 +1,4 @@
 name = "portal-os-v1"
-pages_build_output_dir = "dist"
 compatibility_date = "2024-07-01"
 
 [build]
@@ -19,5 +18,22 @@ bindings = [
   { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
 ]
 
+# Durable Object migrations (required/strongly recommended)
+[[migrations]]
+tag = "v1"
+new_classes = [ "SubstrateDO" ]
+
+# Optional environment-specific override (if you deploy to production env)
 [env.production]
 name = "portal-os-v1-prod"
+
+# Repeat KV and Durable Object bindings under the environment if your production
+# deployment requires separate IDs or explicit environment-level config.
+[[env.production.kv_namespaces]]
+binding = "SUBSTRATE_KV"
+id = "<REPLACE_WITH_KV_NAMESPACE_ID>"
+
+[env.production.durable_objects]
+bindings = [
+  { name = "SUBSTRATE_DO", class_name = "SubstrateDO" }
+]
