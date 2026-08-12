@@ -11,9 +11,9 @@
 
 // Types for Cloudflare bindings
 interface Env {
-  SUBSTRATE_DO: DurableObjectNamespace
-  SUBSTRATE_KV: KVNamespace
-  RUNTIME_KV: KVNamespace
+  SUBSTRATE_KV = 807456cb41558d3c820308b20affa851
+RUNTIME_KV = b9134f2c8d7e4a0fb2c1d9e6a4f7b812
+SUBSTRATE_DO = SubstrateDO (class name)
 }
 
 /**
