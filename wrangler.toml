@@ -1,19 +1,16 @@
-name = "portal-os-v1"
+name = "portal-os-v4-4"
 compatibility_date = "2026-08-12"
 main = "src/index.ts"
 
 [build]
 command = "npm run build"
 
-[worker]
-main = "dist/worker.js"
-
 # KV namespace binding (SUBSTRATE_KV is required)
 [[kv_namespaces]]
 binding = "SUBSTRATE_KV"
 id = "807456cb41558d3c820308b20affa851"
 
-# Optional second KV namespace (replace this ID)
+# Optional second KV namespace
 [[kv_namespaces]]
 binding = "RUNTIME_KV"
 id = "b9134f2c8d7e4a0fb2c1d9e6a4f7b812"
@@ -31,7 +28,7 @@ new_classes = [ "SubstrateDO" ]
 
 # Production environment override
 [env.production]
-name = "portal-os-v1-prod"
+name = "portal-os-v4-4-prod"
 
 [[env.production.kv_namespaces]]
 binding = "SUBSTRATE_KV"

@@ -1,17 +1,63 @@
 export interface Env {
-  // Cloudflare environment variables
+  SUBSTRATE_DO: DurableObjectNamespace
+  SUBSTRATE_KV: KVNamespace
+  RUNTIME_KV: KVNamespace
+}
+
+export class SubstrateDO implements DurableObject {
+  state: DurableObjectState
+  env: Env
+
+  constructor(state: DurableObjectState, env: Env) {
+    this.state = state
+    this.env = env
+  }
+
+  async fetch(request: Request): Promise<Response> {
+    // Substrate Durable Object endpoint
+    const url = new URL(request.url)
+
+    if (url.pathname === '/status') {
+      return new Response(
+        JSON.stringify({
+          status: 'ok',
+          object: 'SubstrateDO',
+          timestamp: new Date().toISOString(),
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          status: 200,
+        }
+      )
+    }
+
+    return new Response(
+      JSON.stringify({ error: 'Not Found', status: 404 }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status: 404,
+      }
+    )
+  }
 }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
 
+    // Substrate Durable Object proxy
+    if (url.pathname.startsWith('/substrate')) {
+      const id = env.SUBSTRATE_DO.idFromName('default')
+      const stub = env.SUBSTRATE_DO.get(id)
+      return stub.fetch(request)
+    }
+
     // API endpoint for runtime ping
     if (url.pathname === '/api/ping' && request.method === 'POST') {
       return new Response(
         JSON.stringify({
           status: 'ok',
-          message: 'Runtime pinged. Portal‑OS v1 responding.',
+          message: 'Runtime pinged. Portal-OS v4.4 responding.',
           timestamp: new Date().toISOString(),
         }),
         {
@@ -26,8 +72,8 @@ export default {
       return new Response(
         JSON.stringify({
           status: 'healthy',
-          service: 'Portal‑OS v1',
-          version: '1.0.0',
+          service: 'Portal-OS v4.4',
+          version: '4.4.0',
           timestamp: new Date().toISOString(),
         }),
         {
@@ -45,7 +91,7 @@ export default {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Portal‑OS v1</title>
+          <title>Portal-OS v4.4</title>
           <style>
             body {
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -125,7 +171,7 @@ export default {
         </head>
         <body>
           <div class="container">
-            <h1>🌐 Portal‑OS v1</h1>
+            <h1>🌐 Portal-OS v4.4</h1>
             <p class="version">Multi-domain operating substrate on Cloudflare</p>
             <div class="status">✓ Online & Responding</div>
             
@@ -142,6 +188,10 @@ export default {
               <div class="endpoint">
                 <span class="endpoint-method">POST</span>
                 <span class="endpoint-path">/api/ping</span> - Runtime ping
+              </div>
+              <div class="endpoint">
+                <span class="endpoint-method">GET</span>
+                <span class="endpoint-path">/substrate/status</span> - Substrate Durable Object status
               </div>
             </div>
 
